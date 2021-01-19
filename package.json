@@ -6,6 +6,9 @@
     "exports": "lib/index.modern.js",
     "module": "lib/index.module.js",
     "unpkg": "lib/index.umd.js",
+    "bin": {
+        "p5": "./lib/index.js"
+    },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "microbundle build",
@@ -28,7 +31,9 @@
         "url": "https://github.com/multimonos/p5-cli/issues"
     },
     "homepage": "https://github.com/multimonos/p5-cli#readme",
-    "dependencies": {},
+    "dependencies": {
+        "commander": "^7.0.0"
+    },
     "devDependencies": {
         "microbundle": "^0.13.0"
     }
