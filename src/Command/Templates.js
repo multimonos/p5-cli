@@ -8,9 +8,9 @@ export default class TemplatesCommand extends Command {
     run(config) {
         this.templatePaths(config.templates.path)
             .map(filepath => {
-                console.log(`  ${chalk.blue(path.basename(filepath))} -> ${filepath}`)
+                this.info(`${chalk.blue(path.basename(filepath))} -> ${filepath}`)
             })
-        console.log(`\nNote: use the ${chalk.yellow('clone')} command to clone a template using it's ${chalk.blue('alias')}`)
+        this.success('done')
 
         return this
     }
