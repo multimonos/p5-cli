@@ -5,7 +5,7 @@
     "main": "lib/main.js",
     "source": "src/main.js",
     "bin": {
-        "p5": "./lib/index.js"
+        "p5js": "./lib/index.js"
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
@@ -39,7 +39,6 @@
         "mkdirp": "^1.0.4"
     },
     "devDependencies": {
-        "@babel/cli": "^7.12.10",
         "@babel/core": "^7.12.10",
         "@babel/preset-env": "^7.12.11",
         "microbundle": "^0.13.0"
