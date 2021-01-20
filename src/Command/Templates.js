@@ -10,8 +10,6 @@ export default class TemplatesCommand extends Command {
             .map(filepath => {
                 this.info(`${chalk.blue(path.basename(filepath))} -> ${filepath}`)
             })
-        this.success('done')
-
         return this
     }
 

@@ -16,6 +16,7 @@ const config = {
 program
     .version('0.1.0')
 
+
 program
     .command('templates')
     .alias('tpl')
@@ -24,15 +25,21 @@ program
         new TemplatesCommand()
             .title('templates')
             .run(config)
+            .close()
     })
 
 program
-    .command('clone <template> <destination>')
-    .description('clone template to local directory')
+    .command('clone <template-name> [destination]')
+    .description('clone template intto target directory')
     .action((tpl, dst, cmd) => {
+
+        dst = dst || `./${tpl}`
+
         new CloneCommand()
             .title('clone')
             .run(config, tpl, dst)
+            .close()
+
     })
 
 

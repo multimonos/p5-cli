@@ -17,6 +17,7 @@ export default class Command {
         console.log(` ${logicon.info} ${msg}`)
         return this
     }
+
     error(msg) {
         console.log(chalk.red(` ${logicon.error} ${msg}`))
         return this
@@ -29,6 +30,11 @@ export default class Command {
 
     warning(msg) {
         console.log(chalk.yellow(` ${logicon.warning} ${msg}`))
+        return this
+    }
+
+    close() {
+        this.success('done\n')
         return this
     }
 }
