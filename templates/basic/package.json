@@ -1,0 +1,16 @@
+{
+    "name": "sketch",
+    "version": "1.0.0",
+    "description": "",
+    "main": "sketch.js",
+    "dependencies": {
+        "p5": "^1.2.0",
+        "parcel": "^1.12.4"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "serve": "parcel ./index.html"
+    },
+    "author": "",
+    "license": "ISC"
+}

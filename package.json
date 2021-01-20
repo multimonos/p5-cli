@@ -11,8 +11,8 @@
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "microbundle build",
-        "watch": "microbundle watch --no-sourcemap"
+        "build": "rm -rf ./lib && babel src --out-dir lib",
+        "watch": "rm -rf ./lib && babel --watch src --out-dir lib"
     },
     "repository": {
         "type": "git",
@@ -32,9 +32,15 @@
     },
     "homepage": "https://github.com/multimonos/p5-cli#readme",
     "dependencies": {
-        "commander": "^7.0.0"
+        "app-root-path": "^3.0.0",
+        "chalk": "^4.1.0",
+        "commander": "^7.0.0",
+        "copy-dir": "^1.3.0",
+        "lodash": "^4.17.20"
     },
     "devDependencies": {
-        "microbundle": "^0.13.0"
+        "@babel/cli": "^7.12.10",
+        "@babel/core": "^7.12.10",
+        "@babel/preset-env": "^7.12.11"
     }
 }
