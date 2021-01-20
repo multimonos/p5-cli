@@ -2,17 +2,15 @@
     "name": "p5-cli",
     "version": "1.0.0",
     "description": "p5 cli for generating sketches from templates",
-    "main": "lib/index.js",
-    "exports": "lib/index.modern.js",
-    "module": "lib/index.module.js",
-    "unpkg": "lib/index.umd.js",
+    "main": "lib/main.js",
+    "source": "src/main.js",
     "bin": {
         "p5": "./lib/index.js"
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "rm -rf ./lib && babel src --out-dir lib",
-        "watch": "rm -rf ./lib && babel --watch src --out-dir lib"
+        "build": "npx microbundle --target node",
+        "watch": "npx microbundle --watch --target node"
     },
     "repository": {
         "type": "git",
@@ -43,6 +41,7 @@
     "devDependencies": {
         "@babel/cli": "^7.12.10",
         "@babel/core": "^7.12.10",
-        "@babel/preset-env": "^7.12.11"
+        "@babel/preset-env": "^7.12.11",
+        "microbundle": "^0.13.0"
     }
 }
