@@ -9,7 +9,7 @@ export default class Command {
     }
 
     title(title) {
-        console.log(chalk.blue(`\n${title}:`))
+        console.log(chalk.magenta(`\n${title}:`))
         return this
     }
 
