@@ -4,22 +4,41 @@ import path from 'path'
 import fs from 'fs'
 import _ from 'lodash'
 import copydir from 'copy-dir'
+import mkdirp from 'mkdirp'
+
 export default class CloneCommand extends Command {
 
-    run(config, name, target) {
-        const dst = path.join(target, name)
+    run(config, templateName, target) {
         const templates = this.templates(fs.realpathSync(config.templates.path))
 
-        if ( ! this.has(name, templates)) {
-            return this.error(`template not found ${name}`)
+        if ( ! this.has(templateName, templates)) {
+            return this.error(`template not found ${templateName}`)
         }
 
-        const tpl = this.resolve(name, templates)
-        console.log(`  attempting to clone ${chalk.blue(name)} -> ${chalk.white(dst)}`)
+        this.info(`cloning template ${chalk.blue(templateName)}`)
 
-        this.clone(tpl.path, dst)
+        target = this.createTargetFolder(target)
+
+        const template = this.resolve(templateName, templates)
+
+        this.clone(template.path, target)
+
+        this.info(`To run sketch use: cd ${target} && npm install && npm run serve`)
 
         return this
+    }
+
+    createTargetFolder(folder) {
+
+        if ( ! fs.existsSync(folder)) {
+            mkdirp(folder)
+
+        } else {
+            folder = this.autoIncrementFoldername(folder)
+            mkdirp(folder)
+        }
+
+        return folder
     }
 
     resolve(name, templates) {
@@ -31,13 +50,10 @@ export default class CloneCommand extends Command {
     }
 
     clone(src, dst) {
-
-        dst = this.autoIncrementFoldername(dst)
-
         copydir.sync(src, dst, {
                 filter: (stat, filepath, filename) => {
                     if (stat === 'file') {
-                        console.log(`  copy: ${filepath} -> ${chalk.green(dst + '/' + filename)}`)
+                        this.info(`copying ${filepath} -> ${chalk.green(dst + '/' + filename)}`)
                     }
                     return true
                 }
@@ -65,13 +81,13 @@ export default class CloneCommand extends Command {
         let filepath = candidate;
 
         while (fs.existsSync(filepath)) {
-            console.log(chalk.red(`  exists: ${filepath}`))
+            this.warning(`exists ${filepath}`)
             const tag = i.toString().padStart(2, '0');
             filepath = `${candidate}-${tag}`;
             i++;
         }
 
-        console.log(chalk.green(`  target: ${filepath}`))
+        this.success(`target ${filepath}`)
 
         return filepath
     }
