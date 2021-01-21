@@ -5,7 +5,8 @@
     "main": "lib/main.js",
     "source": "src/main.js",
     "bin": {
-        "p5js": "./lib/index.js"
+        "p5js": "./lib/index.js",
+        "p5": "./lib/index.js"
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
