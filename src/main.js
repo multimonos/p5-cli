@@ -1,8 +1,8 @@
-
 import program from "commander";
 import ArgumentError from "./ArgumentError";
 import TemplatesCommand from "./Command/Templates";
 import CloneCommand from "./Command/Clone";
+import ServeCommand from "./Command/Serve";
 import APP_PATH from 'app-root-path'
 
 const config = {
@@ -38,7 +38,17 @@ program
             .title('clone')
             .run(config, tpl, dst)
             .close()
+    })
 
+program
+    .command('serve <sketch-path>')
+    .description('serve a sketch with parceljs')
+    .action((sketchPath, cmd) => {
+
+        new ServeCommand()
+            .title('serve')
+            .run(config, sketchPath)
+            // .close()
     })
 
 
