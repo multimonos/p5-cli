@@ -3,18 +3,13 @@ import ArgumentError from "./ArgumentError";
 import TemplatesCommand from "./Command/Templates";
 import CloneCommand from "./Command/Clone";
 import ServeCommand from "./Command/Serve";
-import APP_PATH from 'app-root-path'
+import config from "./config";
+import ConfigCommand from "./Command/Config";
 
-const config = {
-    templates: {
-        path: `${APP_PATH}/templates`,
-        default: "basic"
-    }
-}
+
 
 program
     .version('0.1.0')
-
 
 program
     .command('templates')
@@ -37,6 +32,16 @@ program
         new CloneCommand()
             .title('clone')
             .run(config, tpl, dst)
+            .close()
+    })
+
+program
+    .command('config')
+    .description('display the current config')
+    .action((cmd)=>{
+        new ConfigCommand()
+            .title('config')
+            .run(config)
             .close()
     })
 

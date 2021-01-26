@@ -1,0 +1,10 @@
+{
+    "templates": {
+        "path": "templates",
+        "default": "basic"
+    },
+    "serve": {
+        "output": "dist",
+        "cache" : ".cache"
+    }
+}

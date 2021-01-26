@@ -7,8 +7,9 @@ import APP_ROOT from 'app-root-path'
 
 export default class ServeCommand extends Command {
 
-    run(config, sketchPath) {
-        const entrypoint = this.guessEntrypoint(sketchPath)
+    run(config, entry) {
+        const entrypoint = this.guessEntrypoint(entry)
+        const entrydir = path.dirname(entrypoint)
 
         if ( ! entrypoint) {
             this.error('entry: missing entry point')
@@ -16,15 +17,19 @@ export default class ServeCommand extends Command {
             return this
         }
 
-        const cmd = `${APP_ROOT}/node_modules/.bin/parcel ${entrypoint}` // necessary to be specific with path otherwise spawn is very very slow
+        const cmd = `${APP_ROOT}/node_modules/.bin/parcel ${entrypoint} --out-dir ${config.serve.output} --cache-dir ${config.serve.cache}` // necessary to be specific with path otherwise spawn is very very slow
 
         this.info(`entry: ${entrypoint}`)
-        this.info(`cmd: ${cmd}`)
+        this.info(`${cmd}`)
         this.success('building files ... ( this might take a while )')
 
         this.spawn(cmd)
 
         return this
+    }
+
+    outputDirectory(src) {
+        return src
     }
 
     guessEntrypoint(src) {
