@@ -1,7 +1,7 @@
 import Command from "../Command";
 import fs from 'fs'
 import path from 'path'
-import {spawn, exec} from "child_process";
+import {spawn} from "child_process";
 import APP_ROOT from 'app-root-path'
 
 
