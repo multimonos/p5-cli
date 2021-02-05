@@ -5,6 +5,7 @@ import CloneCommand from "./Command/Clone";
 import ServeCommand from "./Command/Serve";
 import config from "./config";
 import ConfigCommand from "./Command/Config";
+import DataServerCommand from "./Command/DataServer";
 
 
 
@@ -54,6 +55,21 @@ program
             .title('serve')
             .run(config, sketchPath)
             // .close()
+    })
+
+program
+    .command('dataserver')
+    .alias('data-server')
+    .option('-p, --port <port>', 'port to listen on', 3000)
+    .option('-d, --debug', 'port to listen on', false)
+    .description('serve a sketch with parceljs')
+    .action((cmd) => {
+        new DataServerCommand()
+            .title('data-server')
+            .run(config, {
+                debug: cmd.debug,
+                port: cmd.port,
+            })
     })
 
 
