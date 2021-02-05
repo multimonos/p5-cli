@@ -1,5 +1,5 @@
 {
-    "name": "p5-cli",
+    "name": "@multimonos/p5-cli",
     "version": "1.0.0",
     "description": "p5 cli for generating sketches from templates",
     "main": "lib/main.js",
@@ -10,8 +10,7 @@
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "link": "npm link p5-dataserver",
-        "build": "npm run link && npx microbundle --target node",
+        "build": "npx microbundle --target node",
         "watch": "npx microbundle --watch --target node"
     },
     "repository": {
@@ -32,6 +31,7 @@
     },
     "homepage": "https://github.com/multimonos/p5-cli#readme",
     "dependencies": {
+        "@multimonos/p5-dataserver": "^0.1.0",
         "app-root-path": "^3.0.0",
         "chalk": "^4.1.0",
         "commander": "^7.0.0",
