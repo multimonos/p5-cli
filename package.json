@@ -1,7 +1,7 @@
 {
     "name": "@multimonos/p5-cli",
-    "version": "1.0.0",
-    "description": "p5 cli for generating sketches from templates",
+    "version": "0.1.0",
+    "description": "p5 cli for performing day to day p5js instance mode tasks",
     "main": "lib/main.js",
     "source": "src/main.js",
     "bin": {
@@ -24,7 +24,7 @@
         "sketch",
         "templates"
     ],
-    "author": "craig hopgood",
+    "author": "Craig Hopgood <searaig@gmail.com> (https://multimonos.com)",
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/multimonos/p5-cli/issues"
