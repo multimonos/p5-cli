@@ -1,7 +1,7 @@
 {
     "name": "@multimonos/p5-cli",
     "version": "0.1.0",
-    "description": "p5 cli for performing day to day p5js instance mode tasks",
+    "description": "p5js cli tool for performing day to day instance mode tasks",
     "main": "lib/main.js",
     "source": "src/main.js",
     "bin": {
