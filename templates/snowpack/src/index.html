@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+    <title>A Twill of Your Choice</title>
+    <style>
+    body {
+        background-color: #000;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+    }
+    </style>
+    <script type="module">
+    import p5 from "p5"
+    import sketch from './sketch'
+    const canvas = new p5(sketch, document.getElementById('sketch'))
+    window.sketch = canvas
+    </script>
+</head>
+
+<body>
+<main>
+</main>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+{
+    "name": "@multimonos/a-twill-of-your-choice",
+    "version": "1.0.0",
+    "description": "p5js implementation of the book A Twill of Your Choice written by Pau R. O'Connor",
+    "main": "./src/index.js",
+    "scripts": {
+        "test": "npx jest",
+        "dev": "cd ./src && npx snowpack dev",
+        "build": "cd ./src && npx snowpack build"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "p5": "^1.2.0"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.12.13",
+        "@babel/core": "^7.12.13",
+        "@babel/node": "^7.12.13",
+        "@babel/preset-env": "^7.12.13",
+        "@babel/register": "^7.12.13",
+        "jest": "^26.6.3",
+        "jest-canvas-mock": "^2.3.1",
+        "snowpack": "^3.0.11"
+    }
+}
